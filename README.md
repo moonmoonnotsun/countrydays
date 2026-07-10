@@ -41,6 +41,6 @@ node scripts/build-locale-pages.mjs       # build de/, pl/, etc.
 
 ## Links
 
-- App Store: https://apps.apple.com/app/id6755417459
+- App Store: https://apps.apple.com/us/app/country-days-tracker-counter/id6782627594
 - Privacy: https://mpc-app-c2e7a.web.app/country-days-privacy.html
 - Terms: https://mpc-app-c2e7a.web.app/country-days-terms.html

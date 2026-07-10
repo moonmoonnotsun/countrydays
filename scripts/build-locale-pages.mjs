@@ -12,7 +12,7 @@ const ROOT = path.join(__dirname, '..');
 const METADATA_PATH = path.join(ROOT, '../clarify/locales/appStoreMetadata-countrydays.json');
 const PHRASES_PATH = path.join(ROOT, 'locales/landing-phrases.json');
 const TEMPLATE_PATH = path.join(ROOT, 'index.html');
-const APP_ID = '6755417459';
+const APP_ID = '6782627594';
 const BASE_URL = 'https://countrydays.app';
 
 function appStoreUrl(country) {
@@ -355,7 +355,7 @@ function buildLocalePage(code) {
     `${BASE_URL}/assets/`,
   );
   html = html.replace(
-    /https:\/\/apps\.apple\.com\/us\/app\/id6755417459/g,
+    new RegExp(`https://apps\\.apple\\.com/us/app/id${APP_ID}`, 'g'),
     storeUrl,
   );
 
