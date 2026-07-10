@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Country Days Tracker - Visa & Tax Day Counter | iPhone</title>
+    <meta name="title" content="Country Days Tracker - Visa & Tax Day Counter | iPhone">
+    <meta name="description" content="Country days tracker for iPhone - count days in every country, follow Schengen 90/180 and tax residency rules, with GPS auto-tracking, photo import, and on-device privacy.">
+    <meta name="keywords" content="country days tracker, visa tracker, schengen calculator, tax residency, 183 day rule, day counter, overstay, digital nomad, expat, GPS tracking, iOS visa tracker, travel days">
+    <meta name="author" content="omoot apps">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Country Days">
+    <link rel="canonical" href="https://countrydays.app/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://countrydays.app/">
+    <meta property="og:title" content="Country Days Tracker - Visa & Tax Day Counter | iPhone">
+    <meta property="og:description" content="Country days tracker for iPhone - count days in every country, follow Schengen 90/180 and tax residency rules, with GPS auto-tracking and photo import.">
+    <meta property="og:image" content="https://countrydays.app/assets/images/country-days/optimized/hero.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Country Days Tracker & Counter iOS App">
+    <meta property="og:image:secure_url" content="https://countrydays.app/assets/images/country-days/optimized/hero.png">
+    <meta property="og:site_name" content="Country Days Tracker & Counter">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:updated_time" content="2026-07-10T00:00:00+00:00">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://countrydays.app/">
+    <meta name="twitter:title" content="Country Days Tracker - Visa & Tax Day Counter | iPhone">
+    <meta name="twitter:description" content="Country days tracker for iPhone - count days in every country, follow Schengen 90/180 and tax residency rules, with GPS auto-tracking and photo import.">
+    <meta name="twitter:image" content="https://countrydays.app/assets/images/country-days/optimized/hero.png">
+    <meta name="twitter:image:alt" content="Country Days Tracker & Counter iOS App">
+    
+    <!-- App Store -->
+    <meta name="apple-itunes-app" content="app-id=6755417459">
+    <meta name="theme-color" content="#1A8EFF">
+    
+    <!-- Performance Hints -->
+    <link rel="preconnect" href="https://apps.apple.com" crossorigin>
+    <link rel="dns-prefetch" href="https://apps.apple.com">
+    <link rel="preload" href="assets/images/country-days/optimized/hero.png" as="image">
+    <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="preload" href="assets/css/app-page.css" as="style">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/country-days/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/country-days/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/country-days/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/country-days/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/images/country-days/optimized/android-chrome-512x512.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/app-page.css">
+    
+    <!-- Mixpanel Analytics -->
+    <script type="text/javascript">
+        (function(e,c){if(!c.__SV){var l,h;window.mixpanel=c;c._i=[];c.init=function(q,r,f){function t(d,a){var g=a.split(".");2==g.length&&(d=d[g[0]],a=g[1]);d[a]=function(){d.push([a].concat(Array.prototype.slice.call(arguments,0)))}}var b=c;"undefined"!==typeof f?b=c[f]=[]:f="mixpanel";b.people=b.people||[];b.toString=function(d){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);d||(a+=" (stub)");return a};b.people.toString=function(){return b.toString(1)+".people (stub)"};l="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders start_session_recording stop_session_recording people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
+        for(h=0;h<l.length;h++)t(b,l[h]);var n="set set_once union unset remove delete".split(" ");b.get_group=function(){function d(p){a[p]=function(){b.push([g,[p].concat(Array.prototype.slice.call(arguments,0))])}}for(var a={},g=["get_group"].concat(Array.prototype.slice.call(arguments,0)),m=0;m<n.length;m++)d(n[m]);return a};c._i.push([q,r,f])};c.__SV=1.2;var k=e.createElement("script");k.type="text/javascript";k.async=!0;k.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===
+        e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=e.getElementsByTagName("script")[0];e.parentNode.insertBefore(k,e)}})(document,window.mixpanel||[]);
+        
+        mixpanel.init('2ab77ed29d0b04d62a75f63eaecc2a94', {
+            autocapture: false,
+            record_sessions_percent: 0,
+            record_heatmap_data: false,
+            api_host: 'https://api-eu.mixpanel.com',
+            track_pageview: false
+        });
+        
+        // Explicitly disable autocapture to ensure no [Auto] events
+        if (typeof mixpanel.set_config === 'function') {
+            mixpanel.set_config({ autocapture: false });
+        }
+    </script>
+    <script src="assets/js/mixpanel-tracker.js"></script>
+    <script>
+        // Initialize Mixpanel Tracker
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof MixpanelTracker !== 'undefined') {
+                MixpanelTracker.init('2ab77ed29d0b04d62a75f63eaecc2a94', {
+                    projectName: 'countrydays',
+                    debug: false
+                });
+            }
+        });
+    </script>
+    
+    <!-- Country Days Color Overrides - Professional Blue Theme -->
+    <style>
+        :root {
+            --primary-color: #1A8EFF;
+            --primary-dark: #0070E0;
+            --primary-light: #66B3FF;
+            --accent-color: #1A8EFF;
+            --gradient-primary: linear-gradient(135deg, #1A8EFF 0%, #0070E0 100%);
+            --gradient-card: linear-gradient(135deg, rgba(26, 142, 255, 0.1) 0%, rgba(0, 112, 224, 0.1) 100%);
+        }
+        
+        body {
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(26, 142, 255, 0.18) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(0, 112, 224, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(26, 142, 255, 0.12) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(90, 200, 250, 0.18) 0px, transparent 50%);
+        }
+        
+        .grid-background {
+            background-image: 
+                linear-gradient(rgba(26, 142, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 142, 255, 0.1) 1px, transparent 1px);
+        }
+        
+        .app-hero {
+            background: radial-gradient(ellipse at top, rgba(26, 142, 255, 0.2) 0%, transparent 50%),
+                        radial-gradient(ellipse at bottom, rgba(0, 112, 224, 0.15) 0%, transparent 50%);
+        }
+        
+        .app-hero::before {
+            background: radial-gradient(circle, rgba(26, 142, 255, 0.12) 1px, transparent 1px);
+        }
+        
+        .app-logo {
+            filter: drop-shadow(0 20px 60px rgba(26, 142, 255, 0.6)) 
+                    drop-shadow(0 0 40px rgba(0, 112, 224, 0.4))
+                    drop-shadow(0 0 80px rgba(90, 200, 250, 0.2));
+            background: linear-gradient(135deg, rgba(26, 142, 255, 0.25) 0%, rgba(0, 112, 224, 0.25) 100%);
+            border: 1px solid rgba(26, 142, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                        0 0 60px rgba(26, 142, 255, 0.3);
+        }
+        
+        .app-icon-large:hover .app-logo {
+            filter: drop-shadow(0 25px 70px rgba(26, 142, 255, 0.7)) 
+                    drop-shadow(0 0 50px rgba(0, 112, 224, 0.5))
+                    drop-shadow(0 0 100px rgba(90, 200, 250, 0.3));
+            border-color: rgba(26, 142, 255, 0.6);
+        }
+        
+        @media (min-width: 769px) {
+            .app-icon-large:hover .app-logo {
+                transform: scale(1.05);
+            }
+            
+            #features.app-section {
+                padding-top: 0;
+            }
+        }
+        
+        /* Remove shadows on mobile to prevent lag during fadeInUp animation */
+        @media (max-width: 768px) {
+            .app-logo {
+                filter: none !important;
+                box-shadow: none !important;
+            }
+            
+            .app-icon-large:hover .app-logo,
+            .app-icon-large:active .app-logo {
+                filter: none !important;
+                box-shadow: none !important;
+            }
+        }
+        
+        .app-icon-large a {
+            display: block;
+            cursor: pointer;
+        }
+        
+        .phone-mockup {
+            max-width: 350px !important;
+        }
+        
+        .phone-screenshot {
+            width: auto !important;
+            height: 75vh !important;
+        }
+        
+        @media (min-width: 1400px) {
+            .phone-mockup {
+                max-width: 470px !important;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .phone-mockup {
+                max-width: 350px !important;
+            }
+        }
+        
+        .app-title {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            background: none !important;
+            text-shadow: 0 0 40px rgba(26, 142, 255, 0.5),
+                         0 2px 10px rgba(0, 0, 0, 0.3);
+            font-size: 3rem !important;
+            margin-bottom: 20px !important;
+            line-height: 1.2 !important;
+        }
+        
+        @media (max-width: 1024px) {
+            .app-title {
+                font-size: 2.5rem !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .app-title {
+                font-size: 2rem !important;
+                margin-bottom: 16px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .app-title {
+                font-size: 1.75rem !important;
+                margin-bottom: 12px !important;
+            }
+        }
+        
+        .app-tagline {
+            margin-bottom: 36px !important;
+            font-size: 1.125rem !important;
+            color: rgba(255, 255, 255, 0.92) !important;
+            line-height: 1.75 !important;
+            letter-spacing: 0.01em !important;
+            font-weight: 400 !important;
+            max-width: 600px !important;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4),
+                         0 0 20px rgba(26, 142, 255, 0.12) !important;
+            opacity: 0.95;
+            transition: opacity 0.3s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+        }
+        
+        .app-tagline:hover {
+            opacity: 1;
+        }
+        
+        @media (max-width: 1024px) {
+            .app-tagline {
+                font-size: 1.0625rem !important;
+                max-width: 550px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .app-tagline {
+                font-size: 1rem !important;
+                margin-bottom: 40px !important;
+                max-width: 100% !important;
+                line-height: 1.7 !important;
+                color: rgba(255, 255, 255, 0.75) !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .app-tagline {
+                font-size: 0.9375rem !important;
+                margin-bottom: 50px !important;
+                line-height: 1.65 !important;
+                color: rgba(255, 255, 255, 0.7) !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .app-hero-container {
+                gap: 12px !important;
+            }
+            
+            .app-badges {
+                margin-bottom: 8px !important;
+            }
+            
+            .app-hero {
+                margin-bottom: 40px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .app-hero-container {
+                gap: 10px !important;
+            }
+            
+            .app-badges {
+                margin-bottom: 40px !important;
+            }
+            
+            .phone-mockup {
+                margin-top: -10px !important;
+            }
+            
+            .app-hero {
+                margin-bottom: 30px !important;
+            }
+        }
+        
+        .app-badges {
+            margin-top: 0 !important;
+            z-index: 10 !important;
+            position: relative;
+        }
+        
+        .highlight-brand {
+            background: linear-gradient(135deg, #1A8EFF 0%, #0070E0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none !important;
+            filter: drop-shadow(0 0 2px rgba(26, 142, 255, 0.12));
+            position: relative;
+        }
+        
+        .highlight-brand::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 142, 255, 0.08) 0%, rgba(0, 112, 224, 0.05) 100%);
+            filter: blur(6px);
+            z-index: -1;
+        }
+        
+        .app-slogan {
+            color: #1A8EFF !important;
+            -webkit-text-fill-color: #1A8EFF !important;
+            background: none !important;
+            -webkit-background-clip: unset !important;
+            background-clip: unset !important;
+            filter: none !important;
+            text-shadow: none !important;
+            font-size: 1.5rem !important;
+            margin-bottom: 16px !important;
+            margin-top: 0 !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.02em !important;
+            text-transform: uppercase;
+        }
+        
+        @media (max-width: 768px) {
+            .app-slogan {
+                font-size: 1.25rem !important;
+                margin-bottom: 30px !important;
+                margin-top: 0 !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .app-slogan {
+                font-size: 1.125rem !important;
+            }
+        }
+        
+        .app-icon-large {
+            margin-bottom: 0 !important;
+        }
+        
+        @media (max-width: 768px) {
+            .app-icon-large {
+                margin-bottom: 0 !important;
+            }
+        }
+        
+        .section-title {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            background: none !important;
+            text-shadow: 0 0 30px rgba(26, 142, 255, 0.4),
+                         0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-title .title-line {
+            display: block;
+        }
+        
+        .section-title .title-accent {
+            background: linear-gradient(135deg, #1A8EFF 0%, #0070E0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 5px rgba(26, 142, 255, 0.25));
+        }
+        
+        .cta-title {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            background: none !important;
+            text-shadow: 0 0 30px rgba(26, 142, 255, 0.4),
+                         0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .feature-icon-container {
+            background: rgba(26, 142, 255, 0.15);
+            border: 1px solid rgba(26, 142, 255, 0.2);
+        }
+        
+        .feature-card:hover {
+            border-color: rgba(26, 142, 255, 0.4);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+                        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+                        0 0 40px rgba(26, 142, 255, 0.2);
+        }
+        
+        .feature-card:hover .feature-icon-container {
+            background: rgba(26, 142, 255, 0.25);
+            border-color: rgba(26, 142, 255, 0.4);
+            box-shadow: 0 0 20px rgba(26, 142, 255, 0.3);
+        }
+        
+        .screenshot-item:hover {
+            border-color: rgba(26, 142, 255, 0.4);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+                        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+                        0 0 40px rgba(26, 142, 255, 0.2);
+        }
+        
+        .screenshots-grid {
+            grid-template-columns: repeat(4, 1fr) !important;
+            justify-content: center !important;
+            max-width: 1200px !important;
+        }
+
+        @media (min-width: 769px) {
+            .screenshots-grid {
+                justify-content: center !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .screenshots-grid {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                justify-content: flex-start !important;
+                grid-template-columns: none !important;
+                max-width: none !important;
+                width: max-content !important;
+                margin: 0 !important;
+            }
+
+            .screenshot-item {
+                flex: none !important;
+                width: var(--screenshot-card-width) !important;
+                min-width: var(--screenshot-card-width) !important;
+            }
+        }
+
+        .app-store-link {
+            color: #1A8EFF;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(26, 142, 255, 0.4);
+        }
+
+        .app-store-link:hover {
+            color: #c7d2fe;
+            border-bottom-color: rgba(199, 210, 254, 0.75);
+        }
+
+        .about-copy {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta-description .app-store-link {
+            color: #e0e7ff;
+            border-bottom-color: rgba(224, 231, 255, 0.45);
+        }
+
+        .cta-description .app-store-link:hover {
+            color: #ffffff;
+            border-bottom-color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .cta-card {
+            background: linear-gradient(135deg, rgba(26, 142, 255, 0.3) 0%, rgba(0, 112, 224, 0.25) 100%);
+            border: 1px solid rgba(26, 142, 255, 0.5);
+            box-shadow: 0 20px 60px rgba(26, 142, 255, 0.4), 
+                        0 0 80px rgba(26, 142, 255, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .cta-card::before {
+            background: radial-gradient(circle, rgba(26, 142, 255, 0.15) 0%, transparent 70%);
+        }
+        
+        .logo-circle {
+            background: var(--gradient-primary);
+            box-shadow: 0 0 20px rgba(26, 142, 255, 0.4);
+        }
+        
+        .footer-link:hover {
+            color: var(--primary-light);
+        }
+        
+        .screenshot-placeholder {
+            border: 2px dashed rgba(26, 142, 255, 0.4);
+        }
+        
+        .screenshot-placeholder:hover {
+            border-color: rgba(26, 142, 255, 0.6);
+            background: rgba(15, 23, 42, 0.8);
+        }
+        
+        .btn-app-store {
+            background: var(--gradient-primary);
+            box-shadow: 0 4px 14px rgba(26, 142, 255, 0.45),
+                        0 0 20px rgba(26, 142, 255, 0.2);
+            padding: 22px 36px !important;
+            min-height: 64px !important;
+            font-size: 1.125rem !important;
+        }
+        
+        .btn-app-store:hover {
+            background: linear-gradient(135deg, #3DA0FF 0%, #1A8EFF 100%);
+            box-shadow: 0 6px 20px rgba(26, 142, 255, 0.5),
+                        0 0 24px rgba(26, 142, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .btn-app-store {
+                padding: 20px 40px !important;
+                min-height: 60px !important;
+                font-size: 1.0625rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .btn-app-store {
+                padding: 18px 28px !important;
+                min-height: 56px !important;
+                font-size: 1rem !important;
+            }
+        }
+        
+        /* Mobile Font Size Adjustments */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem !important;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem !important;
+            }
+            
+            .feature-title {
+                font-size: 1.125rem !important;
+            }
+            
+            .feature-description {
+                font-size: 0.9375rem !important;
+                line-height: 1.6 !important;
+            }
+            
+            .cta-title {
+                font-size: 1.75rem !important;
+            }
+            
+            .cta-description {
+                font-size: 1.0625rem !important;
+                line-height: 1.6 !important;
+            }
+            
+            .footer-logo .logo-text {
+                font-size: 1rem !important;
+            }
+            
+            .footer-link {
+                font-size: 0.9375rem !important;
+            }
+            
+            .footer-copyright {
+                font-size: 0.875rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.75rem !important;
+            }
+            
+            .section-subtitle {
+                font-size: 0.9375rem !important;
+            }
+            
+            .feature-title {
+                font-size: 1rem !important;
+            }
+            
+            .feature-description {
+                font-size: 0.875rem !important;
+                line-height: 1.5 !important;
+            }
+            
+            .cta-title {
+                font-size: 1.5rem !important;
+            }
+            
+            .cta-description {
+                font-size: 1rem !important;
+                line-height: 1.5 !important;
+            }
+        }
+        
+        /* Reduce Bottom Spacing on Mobile */
+        @media (max-width: 768px) {
+            .app-section {
+                padding-bottom: 50px !important;
+            }
+            
+            .app-hero {
+                margin-bottom: 30px !important;
+            }
+            
+            .section-header {
+                margin-bottom: 40px !important;
+            }
+            
+            .cta-section {
+                padding-bottom: 50px !important;
+            }
+            
+            .cta-card {
+                margin-bottom: 0 !important;
+            }
+            
+            .app-footer {
+                margin-top: 40px !important;
+                padding-top: 40px !important;
+                padding-bottom: 30px !important;
+            }
+            
+            .footer-content {
+                margin-bottom: 20px !important;
+            }
+            
+            .footer-copyright {
+                padding-top: 20px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .app-section {
+                padding-bottom: 40px !important;
+            }
+            
+            .app-hero {
+                margin-bottom: 20px !important;
+            }
+            
+            .section-header {
+                margin-bottom: 30px !important;
+            }
+            
+            .cta-section {
+                padding-bottom: 40px !important;
+            }
+            
+            .app-footer {
+                margin-top: 30px !important;
+                padding-top: 30px !important;
+                padding-bottom: 24px !important;
+            }
+            
+            .footer-content {
+                margin-bottom: 16px !important;
+            }
+            
+            .footer-copyright {
+                padding-top: 16px !important;
+            }
+        }
+    
+        
+        
+        
+        
+        
+        
+        
+        .footer-lang {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            justify-self: center;
+            margin: 0;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        .footer-lang-label {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 0.8125rem;
+            line-height: 1;
+            margin: 0;
+        }
+        .lang-select {
+            appearance: none;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.8125rem;
+            line-height: 1.25;
+            height: 32px;
+            margin: 0;
+            padding: 0 32px 0 10px;
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+        .lang-select:focus {
+            outline: 2px solid rgba(255, 255, 255, 0.25);
+            outline-offset: 2px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 16px;
+        }
+        .footer-logo {
+            justify-self: start;
+        }
+        .footer-links {
+            justify-self: end;
+        }
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+            }
+            .footer-logo,
+            .footer-links {
+                justify-self: center;
+            }
+        }
+    </style>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Country Days Tracker & Counter",
+        "alternateName": ["Country Days Tracker", "Visa Day Counter", "Schengen Calculator"],
+        "url": "https://countrydays.app/",
+        "applicationCategory": "TravelApplication",
+        "operatingSystem": "iOS",
+        "inLanguage": "en-US",
+        "datePublished": "2024-01-01",
+        "dateModified": "2026-07-06",
+        "author": {
+            "@type": "Organization",
+            "name": "omoot apps",
+            "url": "https://omoot.app/"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "description": "Country days tracker for iPhone - count days in every country, follow Schengen 90/180 and tax residency rules, with GPS auto-tracking, photo import, and on-device privacy.",
+        "screenshot": "https://countrydays.app/assets/images/country-days/optimized/01-track-days.jpg",
+        "featureList": [
+            "Day count per country",
+            "Visa and tax counters",
+            "Travel calendar",
+            "Automatic GPS tracking",
+            "Photo trip import",
+            "Home screen widgets"
+        ],
+        "softwareVersion": "1.0",
+        "releaseNotes": "Initial release with all core features",
+        "downloadUrl": "https://apps.apple.com/us/app/id6755417459",
+        "installUrl": "https://apps.apple.com/us/app/id6755417459",
+        "softwareRequirements": "iOS 15.1 or later"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Country Days Tracker & Counter",
+        "alternateName": "Country Days Tracker",
+        "url": "https://countrydays.app/",
+        "description": "Official landing page for Country Days Tracker & Counter, a country days tracker for iPhone.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "omoot apps",
+            "url": "https://omoot.app/"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "omoot apps",
+        "url": "https://omoot.app/",
+        "logo": "https://countrydays.app/assets/images/country-days/optimized/logo.png"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a country days tracker?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A country days tracker counts days spent in each country for visa and tax rules. Country Days Tracker & Counter adds Schengen 90/180 counters, tax residency presets, GPS tracking, and photo import on iPhone."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it support Schengen 90/180?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Built-in Schengen counter tracks your rolling 180-day window and warns you before you exceed 90 days."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can it track tax residency (183-day rule)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Preset counters for tax residency thresholds including 183-day rules, UK SRT, and custom country limits."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my location data uploaded?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Your location data stays on your device. We save only the country name - never your precise GPS coordinates."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I import trips from photos?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Import past trips from photo location metadata on your device to rebuild your travel history quickly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is this app free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes - free download on the App Store. Premium features are optional in-app purchases."
+                }
+            }
+        ]
+    }
+    </script>
+    <link rel="alternate" hreflang="en" href="https://countrydays.app/">
+    <link rel="alternate" hreflang="de" href="https://countrydays.app/de/">
+    <link rel="alternate" hreflang="fr" href="https://countrydays.app/fr/">
+    <link rel="alternate" hreflang="es" href="https://countrydays.app/es/">
+    <link rel="alternate" hreflang="ru" href="https://countrydays.app/ru/">
+    <link rel="alternate" hreflang="pl" href="https://countrydays.app/pl/">
+    <link rel="alternate" hreflang="ja" href="https://countrydays.app/ja/">
+    <link rel="alternate" hreflang="pt-BR" href="https://countrydays.app/pt/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://countrydays.app/zh/">
+    <link rel="alternate" hreflang="ko" href="https://countrydays.app/ko/">
+    <link rel="alternate" hreflang="it" href="https://countrydays.app/it/">
+    <link rel="alternate" hreflang="nl" href="https://countrydays.app/nl/">
+    <link rel="alternate" hreflang="tr" href="https://countrydays.app/tr/">
+    <link rel="alternate" hreflang="uk" href="https://countrydays.app/uk/">
+    <link rel="alternate" hreflang="ar" href="https://countrydays.app/ar/">
+    <link rel="alternate" hreflang="sv" href="https://countrydays.app/sv/">
+    <link rel="alternate" hreflang="zh-Hant" href="https://countrydays.app/zh-tw/">
+    <link rel="alternate" hreflang="pt-PT" href="https://countrydays.app/pt-pt/">
+    <link rel="alternate" hreflang="vi" href="https://countrydays.app/vi/">
+    <link rel="alternate" hreflang="id" href="https://countrydays.app/id/">
+    <link rel="alternate" hreflang="th" href="https://countrydays.app/th/">
+    <link rel="alternate" hreflang="cs" href="https://countrydays.app/cs/">
+    <link rel="alternate" hreflang="da" href="https://countrydays.app/da/">
+    <link rel="alternate" hreflang="nb" href="https://countrydays.app/nb/">
+    <link rel="alternate" hreflang="fi" href="https://countrydays.app/fi/">
+    <link rel="alternate" hreflang="he" href="https://countrydays.app/he/">
+    <link rel="alternate" hreflang="ca" href="https://countrydays.app/ca/">
+    <link rel="alternate" hreflang="hr" href="https://countrydays.app/hr/">
+    <link rel="alternate" hreflang="el" href="https://countrydays.app/el/">
+    <link rel="alternate" hreflang="hi" href="https://countrydays.app/hi/">
+    <link rel="alternate" hreflang="hu" href="https://countrydays.app/hu/">
+    <link rel="alternate" hreflang="ms" href="https://countrydays.app/ms/">
+    <link rel="alternate" hreflang="es-MX" href="https://countrydays.app/es-mx/">
+    <link rel="alternate" hreflang="ro" href="https://countrydays.app/ro/">
+    <link rel="alternate" hreflang="sk" href="https://countrydays.app/sk/">
+    <link rel="alternate" hreflang="fr-CA" href="https://countrydays.app/fr-ca/">
+    <link rel="alternate" hreflang="x-default" href="https://countrydays.app/">
+    <script>
+        (function () {
+            var routes = {"de":"/de/","fr":"/fr/","es":"/es/","ru":"/ru/","pl":"/pl/","ja":"/ja/","pt":"/pt/","pt-br":"/pt/","zh":"/zh/","zh-cn":"/zh/","zh-hans":"/zh/","ko":"/ko/","it":"/it/","nl":"/nl/","tr":"/tr/","uk":"/uk/","ua":"/uk/","ar":"/ar/","sv":"/sv/","zh-tw":"/zh-tw/","zh-hant":"/zh-tw/","zh-hk":"/zh-tw/","pt-pt":"/pt-pt/","vi":"/vi/","id":"/id/","th":"/th/","cs":"/cs/","da":"/da/","nb":"/nb/","no":"/nb/","nn":"/nb/","fi":"/fi/","he":"/he/","ca":"/ca/","hr":"/hr/","el":"/el/","hi":"/hi/","hu":"/hu/","ms":"/ms/","es-mx":"/es-mx/","ro":"/ro/","sk":"/sk/","fr-ca":"/fr-ca/"};
+            var path = window.location.pathname;
+            if (path !== '/' && path !== '/index.html') return;
+
+            var langs = navigator.languages || [navigator.language || 'en'];
+            var primary = (langs[0] || 'en').toLowerCase();
+            if (primary === 'en' || primary.indexOf('en-') === 0) return;
+
+            var tag = primary;
+            var base = primary.split('-')[0];
+            if (routes[tag]) { window.location.replace(routes[tag]); return; }
+            if (routes[base]) { window.location.replace(routes[base]); return; }
+        })();
+    </script>
+</head>
+<body>
+    <div class="grid-background"></div>
+    <main>
+    <div class="app-hero">
+        <div class="app-hero-container">
+            <div class="app-hero-content">
+                <div class="app-icon-large">
+                    <a href="https://apps.apple.com/us/app/id6755417459" target="_blank" rel="noopener noreferrer" aria-label="Download Country Days Tracker & Counter on the App Store" style="display: block; text-decoration: none;">
+                        <img src="assets/images/country-days/optimized/logo.png" alt="Country Days Tracker & Counter Logo" class="app-logo" width="120" height="120" loading="eager" decoding="async">
+                    </a>
+                </div>
+                <p class="app-slogan">Country days tracker for iPhone</p>
+                <h1 class="app-title">Track <span class="highlight-brand">visa & tax</span> days automatically</h1>
+                <p class="app-tagline"><a href="https://apps.apple.com/us/app/id6755417459" class="app-store-link" target="_blank" rel="noopener noreferrer">Country Days Tracker & Counter</a> counts days in every country, helps you stay under Schengen 90/180 and tax residency limits, and imports past trips from photos - all on your device.</p>
+                <div class="app-badges">
+                    <a href="https://apps.apple.com/us/app/id6755417459" target="_blank" rel="noopener noreferrer" class="btn btn-app-store" aria-label="Download on the App Store">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 12px; vertical-align: middle;">
+                            <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"></path>
+                        </svg>
+                        <span>Download on the App Store</span>
+                        <span class="btn-divider"></span>
+                        <span class="btn-free">Free</span>
+                    </a>
+                </div>
+            </div>
+            <div class="app-hero-visual">
+                <div class="phone-mockup">
+                    <img src="assets/images/country-days/optimized/hero.png" alt="Country Days Tracker & Counter iOS app running on iPhone showing travel day statistics" class="phone-screenshot" width="400" height="800" loading="eager" decoding="async">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="app-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-line">Visa compliance,</span>
+                    <span class="title-line title-accent">tax residency, zero guesswork</span>
+                </h2>
+                <p class="section-subtitle">Everything you need to track days abroad. From Schengen limits to 183-day tax rules, all in one clean app.</p>
+            </div>
+            <h3 class="sr-only">Country Days Features</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-container">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="4" rx="1"/>
+                            <rect x="3" y="8" width="18" height="4" rx="1"/>
+                            <rect x="3" y="13" width="18" height="4" rx="1"/>
+                            <rect x="3" y="18" width="18" height="4" rx="1"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Day count per country</h3>
+                    <p class="feature-description">See how many days you spent in each country with stats, top countries, border crossings, and travel day totals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-container">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Visa & tax counters</h3>
+                    <p class="feature-description">Preset day limit counters for Schengen 90/180, 183-day tax residency, UK SRT, and custom rules with overstay warnings.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-container">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12h18M12 3v18"/>
+                            <path d="M3 6h18M6 3v18M18 3v18"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Travel calendar</h3>
+                    <p class="feature-description">Calendar view shows every day with country flags so you can review your full travel history at a glance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-container">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Automatic GPS tracking</h3>
+                    <p class="feature-description">Optional background country detection counts days automatically when you cross borders - no manual entry needed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-container">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11l3 3L22 4"/>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Photo trip import</h3>
+                    <p class="feature-description">Rebuild travel history from photo location metadata on your device. Import past trips in seconds.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-container">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                            <polyline points="17 21 17 13 7 13 7 21"/>
+                            <polyline points="7 3 7 8 15 8"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Home screen widgets</h3>
+                    <p class="feature-description">Widgets show year stats and top countries on your home screen so you always know where you stand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="app-section app-section-alt" id="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">See it in action</h2>
+                <p class="section-subtitle">Clean interface built for travelers, nomads, and expats</p>
+            </div>
+        </div>
+        <div class="screenshots-carousel" aria-label="App screenshots">
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <img src="assets/images/country-days/optimized/01-track-days.jpg" alt="Country Days iOS app showing day count per country" loading="lazy" width="280" height="600" decoding="async" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="display: none;">Track days</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="assets/images/country-days/optimized/02-visas-taxes.jpg" alt="Country Days iOS app showing visa and tax trip list" loading="lazy" width="280" height="600" decoding="async" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="display: none;">Visas and taxes</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="assets/images/country-days/optimized/03-calendar.jpg" alt="Country Days iOS app showing travel calendar" loading="lazy" width="280" height="600" decoding="async" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="display: none;">Calendar</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="assets/images/country-days/optimized/04-day-counters.jpg" alt="Country Days iOS app showing Schengen day limit counters" loading="lazy" width="280" height="600" decoding="async" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="display: none;">Day counters</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="assets/images/country-days/optimized/05-auto-tracking.jpg" alt="Country Days iOS app showing automatic GPS day tracking" loading="lazy" width="280" height="600" decoding="async" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="display: none;">Auto tracking</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="assets/images/country-days/optimized/06-photo-import.jpg" alt="Country Days iOS app showing photo trip import" loading="lazy" width="280" height="600" decoding="async" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="display: none;">Photo import</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="assets/images/country-days/optimized/07-widget.jpg" alt="Country Days iOS app showing home screen widgets" loading="lazy" width="280" height="600" decoding="async" onerror="this.parentElement.classList.add('screenshot-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="display: none;">Widgets</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="app-section" id="about-country-days">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What is a <span class="title-accent">country days tracker</span>?</h2>
+                <p class="section-subtitle about-copy">A country days tracker counts how many days you spend in each country for visa limits, tax residency, and travel records. <a href="https://apps.apple.com/us/app/id6755417459" class="app-store-link" target="_blank" rel="noopener noreferrer">Country Days Tracker & Counter</a> is a day counter for iPhone - Schengen 90/180, tax residency presets, GPS auto-tracking, photo import, calendar, and widgets.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="app-section app-section-alt" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Country Days <span class="title-accent">FAQ</span></h2>
+                <p class="section-subtitle">Common questions about our country days tracker for iPhone</p>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span class="faq-question-text">What is a country days tracker?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <p class="faq-answer">A country days tracker counts days spent in each country for visa and tax rules. <a href="https://apps.apple.com/us/app/id6755417459" class="app-store-link" target="_blank" rel="noopener noreferrer">Country Days Tracker & Counter</a> adds Schengen 90/180 counters, tax residency presets, GPS tracking, and photo import on iPhone.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span class="faq-question-text">Does it support Schengen 90/180?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <p class="faq-answer">Yes. Built-in Schengen counter tracks your rolling 180-day window and warns you before you exceed 90 days.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span class="faq-question-text">Can it track tax residency (183-day rule)?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <p class="faq-answer">Yes. Preset counters for tax residency thresholds including 183-day rules, UK SRT, and custom country limits.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span class="faq-question-text">Is my location data uploaded?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <p class="faq-answer">No. Your location data stays on your device. We save only the country name - never your precise GPS coordinates.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span class="faq-question-text">Can I import trips from photos?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <p class="faq-answer">Yes. Import past trips from photo location metadata on your device to rebuild your travel history quickly.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span class="faq-question-text">Is this app free?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
+                    <div class="faq-answer-wrap">
+                        <p class="faq-answer">Yes - free download on the App Store. Premium features are optional in-app purchases.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-card">
+            <h2 class="cta-title">Download the country days tracker</h2>
+            <p class="cta-description">Get <a href="https://apps.apple.com/us/app/id6755417459" class="app-store-link" target="_blank" rel="noopener noreferrer">Country Days Tracker & Counter</a> on iPhone - track visa limits, tax residency days, and travel history with GPS and photo import.</p>
+            <div class="cta-buttons">
+                <a href="https://apps.apple.com/us/app/id6755417459" target="_blank" rel="noopener noreferrer" class="btn btn-app-store" aria-label="Download on the App Store">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 12px; vertical-align: middle;">
+                        <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"></path>
+                    </svg>
+                    <span>Download on the App Store</span>
+                    <span class="btn-divider"></span>
+                    <span class="btn-free">Free</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="app-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-circle">C</div>
+                    <span class="logo-text">Country Days Tracker & Counter</span>
+                </div>
+                                                                                                                                                <div class="footer-lang">
+                    <label for="lang-select" class="footer-lang-label">Language</label>
+                    <select id="lang-select" class="lang-select" aria-label="Language">
+                        <option value="/" selected>EN</option>
+                        <option value="/de/">DE</option>
+                        <option value="/fr/">FR</option>
+                        <option value="/es/">ES</option>
+                        <option value="/ru/">RU</option>
+                        <option value="/pl/">PL</option>
+                        <option value="/ja/">JA</option>
+                        <option value="/pt/">PT</option>
+                        <option value="/zh/">ZH</option>
+                        <option value="/ko/">KO</option>
+                        <option value="/it/">IT</option>
+                        <option value="/nl/">NL</option>
+                        <option value="/tr/">TR</option>
+                        <option value="/uk/">UK</option>
+                        <option value="/ar/">AR</option>
+                        <option value="/sv/">SV</option>
+                        <option value="/zh-tw/">TW</option>
+                        <option value="/pt-pt/">PT-PT</option>
+                        <option value="/vi/">VI</option>
+                        <option value="/id/">ID</option>
+                        <option value="/th/">TH</option>
+                        <option value="/cs/">CS</option>
+                        <option value="/da/">DA</option>
+                        <option value="/nb/">NB</option>
+                        <option value="/fi/">FI</option>
+                        <option value="/he/">HE</option>
+                        <option value="/ca/">CA</option>
+                        <option value="/hr/">HR</option>
+                        <option value="/el/">EL</option>
+                        <option value="/hi/">HI</option>
+                        <option value="/hu/">HU</option>
+                        <option value="/ms/">MS</option>
+                        <option value="/es-mx/">ES-MX</option>
+                        <option value="/ro/">RO</option>
+                        <option value="/sk/">SK</option>
+                        <option value="/fr-ca/">FR-CA</option>
+                    </select>
+                </div>
+                <div class="footer-links">
+                    <a href="https://mpc-app-c2e7a.web.app/country-days-privacy.html" target="_blank" rel="noopener noreferrer" class="footer-link">Privacy</a>
+                    <a href="https://mpc-app-c2e7a.web.app/country-days-terms.html" target="_blank" rel="noopener noreferrer" class="footer-link">Terms</a>
+                    <a href="mailto:dev.ohmyapp@gmail.com" class="footer-link">Support</a>
+                    <a href="mailto:dev.ohmyapp@gmail.com" class="footer-link">Contact</a>
+                </div>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Country Days Tracker & Counter</p>
+        </div>
+    </footer>
+    </main>
+    <script>
+        (function () {
+            var carousel = document.querySelector('.screenshots-carousel');
+            if (!carousel) return;
+            function resetCarouselScroll() { carousel.scrollLeft = 0; }
+            resetCarouselScroll();
+            window.addEventListener('load', resetCarouselScroll);
+            window.addEventListener('pageshow', function (event) {
+                if (event.persisted) resetCarouselScroll();
+            });
+        })();
+        (function () {
+            document.querySelectorAll('.faq-item').forEach(function (details) {
+                var summary = details.querySelector('.faq-question');
+                var wrap = details.querySelector('.faq-answer-wrap');
+                if (!summary || !wrap) return;
+                summary.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    if (details.open) {
+                        details.classList.add('is-closing');
+                        wrap.addEventListener('transitionend', function onClose(endEvent) {
+                            if (endEvent.propertyName !== 'grid-template-rows') return;
+                            details.classList.remove('is-closing');
+                            details.open = false;
+                            wrap.removeEventListener('transitionend', onClose);
+                        });
+                    } else {
+                        details.open = true;
+                    }
+                });
+            });
+        })();
+    </script>
+    <script>
+        (function () {
+            var select = document.getElementById('lang-select');
+            if (!select) return;
+            select.addEventListener('change', function () {
+                if (!this.value) return;
+                window.location.href = this.value;
+            });
+        })();
+    </script>
+</body>
+</html>
