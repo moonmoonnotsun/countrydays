@@ -3,14 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            var ua = navigator.userAgent || "";
+            var platform = navigator.platform || "";
+            var touch = navigator.maxTouchPoints || 0;
+            var coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+            var ipad = /iPad|iPhone|iPod/i.test(ua) || /iPad|iPhone|iPod/i.test(platform) || ((/Mac/i.test(platform) || /Macintosh/i.test(ua)) && (touch > 0 || coarse));
+            var os = /Android/i.test(ua) ? "android" : (ipad ? "ios" : "");
+            if (os) document.documentElement.classList.add("os-" + os);
+            if (os === "android") {
+                document.addEventListener("DOMContentLoaded", function () {
+                    var play = "https://play.google.com/store/apps/details?id=com.ohmyapp.countrydays";
+                    var links = document.querySelectorAll('a[href*="apps.apple.com"]');
+                    for (var i = 0; i < links.length; i++) {
+                        if (links[i].classList.contains("store-ios")) continue;
+                        links[i].href = play;
+                    }
+                });
+            }
+        })();
+    </script>
     
     <!-- Primary Meta Tags -->
-    <title>Country Days Tracker - Contador de vistos e impostos | iPhone</title>
-    <meta name="title" content="Country Days Tracker - Contador de vistos e impostos | iPhone">
-    <meta name="description" content="Rastreador de dias no país para iPhone - conte os dias em cada país, siga Schengen 90/180 e as regras de residência fiscal, com rastreamento automático por">
-    <meta name="keywords" content="country, days, tracker, count, counter, visa, schengen, tax, residency, estrangeiro, permanência, viagem, 183">
+    <title>Contador Schengen e residência fiscal</title>
+    <meta name="title" content="Contador Schengen e residência fiscal">
+    <meta name="description" content="Conte os dias passados em cada país no iPhone ou Android. Acompanhe Schengen 90/180 e a residência fiscal, com GPS e importação de fotos. Grátis.">
+    <meta name="keywords" content="contador Schengen, residência fiscal, dias por país, visto">
     <meta name="author" content="omoot apps">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <meta name="language" content="Portuguese (Portugal)">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,24 +42,60 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://countrydays.app/pt-pt/">
-    <meta property="og:title" content="Country Days Tracker - Contador de vistos e impostos | iPhone">
-    <meta property="og:description" content="Rastreador de dias no país para iPhone - conte os dias em cada país, siga Schengen 90/180 e as regras de residência fiscal, com rastreamento automático por">
-    <meta property="og:image" content="https://countrydays.app/assets/images/country-days/optimized/hero.png">
+    <meta property="og:title" content="Contador Schengen e residência fiscal">
+    <meta property="og:description" content="Conte os dias passados em cada país no iPhone ou Android. Acompanhe Schengen 90/180 e a residência fiscal, com GPS e importação de fotos. Grátis.">
+    <meta property="og:image" content="https://countrydays.app/assets/images/country-days/optimized/og.png">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Country Days Tracker & Counter iOS App">
-    <meta property="og:image:secure_url" content="https://countrydays.app/assets/images/country-days/optimized/hero.png">
+    <meta property="og:image:alt" content="Contador de dias por país para iPhone e Android">
+    <meta property="og:image:secure_url" content="https://countrydays.app/assets/images/country-days/optimized/og.png">
     <meta property="og:site_name" content="Country Days Tracker & Counter">
     <meta property="og:locale" content="pt_PT">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="de_DE">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:locale:alternate" content="es_ES">
+    <meta property="og:locale:alternate" content="ru_RU">
+    <meta property="og:locale:alternate" content="pl_PL">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:locale:alternate" content="pt_BR">
+    <meta property="og:locale:alternate" content="zh_CN">
+    <meta property="og:locale:alternate" content="ko_KR">
+    <meta property="og:locale:alternate" content="it_IT">
+    <meta property="og:locale:alternate" content="nl_NL">
+    <meta property="og:locale:alternate" content="tr_TR">
+    <meta property="og:locale:alternate" content="uk_UA">
+    <meta property="og:locale:alternate" content="ar_SA">
+    <meta property="og:locale:alternate" content="sv_SE">
+    <meta property="og:locale:alternate" content="zh_TW">
+    <meta property="og:locale:alternate" content="vi_VN">
+    <meta property="og:locale:alternate" content="id_ID">
+    <meta property="og:locale:alternate" content="th_TH">
+    <meta property="og:locale:alternate" content="cs_CZ">
+    <meta property="og:locale:alternate" content="da_DK">
+    <meta property="og:locale:alternate" content="nb_NO">
+    <meta property="og:locale:alternate" content="fi_FI">
+    <meta property="og:locale:alternate" content="he_IL">
+    <meta property="og:locale:alternate" content="ca_ES">
+    <meta property="og:locale:alternate" content="hr_HR">
+    <meta property="og:locale:alternate" content="el_GR">
+    <meta property="og:locale:alternate" content="hi_IN">
+    <meta property="og:locale:alternate" content="hu_HU">
+    <meta property="og:locale:alternate" content="ms_MY">
+    <meta property="og:locale:alternate" content="es_MX">
+    <meta property="og:locale:alternate" content="ro_RO">
+    <meta property="og:locale:alternate" content="sk_SK">
+    <meta property="og:locale:alternate" content="fr_CA">
     <meta property="og:updated_time" content="2026-07-10T00:00:00+00:00">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://countrydays.app/pt-pt/">
-    <meta name="twitter:title" content="Country Days Tracker - Contador de vistos e impostos | iPhone">
-    <meta name="twitter:description" content="Rastreador de dias no país para iPhone - conte os dias em cada país, siga Schengen 90/180 e as regras de residência fiscal, com rastreamento automático por">
-    <meta name="twitter:image" content="https://countrydays.app/assets/images/country-days/optimized/hero.png">
-    <meta name="twitter:image:alt" content="Country Days Tracker & Counter iOS App">
+    <meta name="twitter:title" content="Contador Schengen e residência fiscal">
+    <meta name="twitter:description" content="Conte os dias passados em cada país no iPhone ou Android. Acompanhe Schengen 90/180 e a residência fiscal, com GPS e importação de fotos. Grátis.">
+    <meta name="twitter:image" content="https://countrydays.app/assets/images/country-days/optimized/og.png">
+    <meta name="twitter:image:alt" content="Contador de dias por país para iPhone e Android">
     
     <!-- App Store -->
     <meta name="apple-itunes-app" content="app-id=6782627594">
@@ -52,11 +109,11 @@
     <link rel="preload" href="../assets/css/app-page.css" as="style">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/country-days/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/country-days/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/country-days/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/country-days/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="../assets/images/country-days/optimized/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/country-days/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/country-days/favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/country-days/apple-touch-icon.png?v=2">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/country-days/android-chrome-192x192.png?v=2">
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/images/country-days/optimized/android-chrome-512x512.png?v=2">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -340,25 +397,21 @@
             background-clip: unset !important;
             filter: none !important;
             text-shadow: none !important;
-            font-size: 1.5rem !important;
+            font-size: 0.9375rem !important;
+            line-height: 1.25 !important;
+            margin-top: 18px !important;
             margin-bottom: 16px !important;
-            margin-top: 0 !important;
             font-weight: 700 !important;
-            letter-spacing: 0.02em !important;
+            letter-spacing: 0.04em !important;
             text-transform: uppercase;
         }
         
         @media (max-width: 768px) {
             .app-slogan {
-                font-size: 1.25rem !important;
-                margin-bottom: 30px !important;
-                margin-top: 0 !important;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .app-slogan {
-                font-size: 1.125rem !important;
+                font-size: 0.8125rem !important;
+                line-height: 1.2 !important;
+                margin-top: 16px !important;
+                margin-bottom: 14px !important;
             }
         }
         
@@ -689,6 +742,68 @@
         
         
         
+        html.os-ios .store-android,
+        html.os-android .store-ios { display: none !important; }
+        .app-badges,
+        .cta-buttons {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            align-items: center;
+            gap: 14px;
+        }
+        .app-badges .store,
+        .cta-buttons .store {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 14px;
+            width: auto !important;
+            flex: none;
+            align-self: center;
+            margin: 0;
+            padding: 16px 18px !important;
+            border: 0;
+            border-radius: 16px !important;
+            background: #1A8EFF;
+            color: #07111F !important;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: 0;
+            text-transform: none !important;
+            text-decoration: none;
+            white-space: nowrap;
+            box-shadow: none !important;
+        }
+        .store-play { background: #3ECF8E !important; color: #07111F !important; }
+        html.os-ios .store,
+        html.os-android .store-play { background: #1A8EFF !important; color: #07111F !important; }
+        .store:hover { filter: brightness(1.05); }
+        .store .apple,
+        .store .play-mark { width: 24px; height: 24px; flex: none; display: block; margin: 0 !important; }
+        .store-label { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; text-align: start; }
+        .store-soft { font-weight: 500; font-size: 0.72em; color: inherit !important; }
+        .store-strong { font-weight: 800; font-size: 1em; color: inherit !important; }
+        .store .free {
+            padding-left: 12px;
+            border-left: 1px solid rgba(7, 17, 31, 0.22);
+            font-weight: 700;
+            color: inherit !important;
+        }
+        [dir="rtl"] .store .free { padding-left: 0; padding-right: 12px; border-left: 0; border-right: 1px solid rgba(7, 17, 31, 0.22); }
+        @media (max-width: 1100px) {
+            .app-badges, .cta-buttons { flex-wrap: wrap !important; justify-content: center; }
+        }
+        @media (max-width: 768px) {
+            .app-badges, .cta-buttons { justify-content: center; }
+            .app-badges .store, .cta-buttons .store { align-self: center; }
+        }
+        
+        
+        
+        
+        
         .footer-lang {
             display: flex;
             align-items: center;
@@ -756,13 +871,13 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Contador de dias por país GPS",
-        "alternateName": ["Country Days Tracker", "Visa Day Counter", "Schengen Calculator"],
+        "alternateName": ["Country Days Tracker"],
         "url": "https://countrydays.app/pt-pt/",
+        "image": "https://countrydays.app/assets/images/country-days/optimized/logo.png",
         "applicationCategory": "TravelApplication",
-        "operatingSystem": "iOS",
+        "operatingSystem": "iOS, Android",
         "inLanguage": "pt-PT",
-        "datePublished": "2024-01-01",
-        "dateModified": "2026-07-06",
+        "dateModified": "2026-11-08",
         "author": {
             "@type": "Organization",
             "name": "omoot apps",
@@ -773,8 +888,13 @@
             "price": "0",
             "priceCurrency": "USD"
         },
-        "description": "Rastreador de dias no país para iPhone - conte os dias em cada país, siga Schengen 90/180 e as regras de residência fiscal, com rastreamento automático por",
-        "screenshot": "https://countrydays.app/assets/images/country-days/optimized/01-track-days.jpg",
+        "description": "Conte os dias passados em cada país no iPhone ou Android. Acompanhe Schengen 90/180 e a residência fiscal, com GPS e importação de fotos. Grátis.",
+        "screenshot": [
+            "https://countrydays.app/assets/images/country-days/optimized/01-track-days.jpg",
+            "https://countrydays.app/assets/images/country-days/optimized/02-visas-taxes.jpg",
+            "https://countrydays.app/assets/images/country-days/optimized/03-calendar.jpg",
+            "https://countrydays.app/assets/images/country-days/optimized/04-day-counters.jpg"
+        ],
         "featureList": [
             "Contagem de dias por país",
             "Balcões de vistos e impostos",
@@ -783,11 +903,11 @@
             "Importação de viagem fotográfica",
             "Widgets da tela inicial"
         ],
-        "softwareVersion": "1.0",
-        "releaseNotes": "Initial release with all core features",
-        "downloadUrl": "https://apps.apple.com/pt/app/id6782627594",
-        "installUrl": "https://apps.apple.com/pt/app/id6782627594",
-        "softwareRequirements": "iOS 15.1 or later"
+        "downloadUrl": [
+            "https://apps.apple.com/pt/app/id6782627594",
+            "https://play.google.com/store/apps/details?id=com.ohmyapp.countrydays"
+        ],
+        "installUrl": "https://apps.apple.com/pt/app/id6782627594"
     }
     </script>
 
@@ -795,15 +915,32 @@
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Country Days Tracker & Counter",
-        "alternateName": "Country Days Tracker",
+        "name": "Contador de dias por país GPS",
         "url": "https://countrydays.app/pt-pt/",
-        "description": "Official landing page for Country Days Tracker & Counter, a country days tracker for iPhone.",
+        "inLanguage": "pt-PT",
+        "description": "Conte os dias passados em cada país no iPhone ou Android. Acompanhe Schengen 90/180 e a residência fiscal, com GPS e importação de fotos. Grátis.",
         "publisher": {
             "@type": "Organization",
             "name": "omoot apps",
             "url": "https://omoot.app/"
         }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "url": "https://countrydays.app/pt-pt/",
+        "name": "Contador Schengen e residência fiscal",
+        "inLanguage": "pt-PT",
+        "description": "Conte os dias passados em cada país no iPhone ou Android. Acompanhe Schengen 90/180 e a residência fiscal, com GPS e importação de fotos. Grátis.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Contador de dias por país GPS",
+            "url": "https://countrydays.app/pt-pt/"
+        },
+        "primaryImageOfPage": "https://countrydays.app/assets/images/country-days/optimized/og.png"
     }
     </script>
 
@@ -827,7 +964,7 @@
                             "name": "O que é um contador de dias por país?",
                             "acceptedAnswer": {
                                       "@type": "Answer",
-                                      "text": "Um rastreador de dias no país conta os dias gastos em cada país para fins de vistos e regras fiscais.Contador de dias por país GPSadiciona contadores Schengen 90/180, predefinições de residência fiscal, rastreamento GPS e importação de fotos no iPhone."
+                                      "text": "Um rastreador de dias no país conta os dias gastos em cada país para fins de vistos e regras fiscais.Contador de dias por país GPSadiciona contadores Schengen 90/180, predefinições de residência fiscal, rastreamento GPS e importação de fotos no iPhone e no Android."
                             }
                   },
                   {
@@ -867,7 +1004,7 @@
                             "name": "Este aplicativo é gratuito?",
                             "acceptedAnswer": {
                                       "@type": "Answer",
-                                      "text": "Sim - download gratuito na App Store. Os recursos premium são compras opcionais no aplicativo."
+                                      "text": "Sim - download gratuito na App Store e no Google Play. Os recursos premium são compras opcionais no aplicativo."
                             }
                   }
         ]
@@ -918,21 +1055,21 @@
         <div class="app-hero-container">
             <div class="app-hero-content">
                 <div class="app-icon-large">
-                    <a href="https://apps.apple.com/pt/app/id6782627594" target="_blank" rel="noopener noreferrer" aria-label="Transferir na App Store" style="display: block; text-decoration: none;">
-                        <img src="../assets/images/country-days/optimized/logo.png" alt="Country Days Tracker & Counter Logo" class="app-logo" width="120" height="120" loading="eager" decoding="async">
-                    </a>
+                    <img src="../assets/images/country-days/optimized/logo.png" alt="Country Days Tracker & Counter" class="app-logo" width="120" height="120" loading="eager" decoding="async">
                 </div>
-                <p class="app-slogan">Contador de dias por país para iPhone</p>
+                <p class="app-slogan">Contador de dias por país para iPhone e Android</p>
                 <h1 class="app-title">Conte <span class="highlight-brand">dias de visto e impostos</span> automaticamente</h1>
-                <p class="app-tagline"><a href="https://apps.apple.com/pt/app/id6782627594" class="app-store-link" target="_blank" rel="noopener noreferrer">Contador de dias por país GPS</a> conta os dias em todos os países, ajuda você a permanecer sob Schengen 90/180 e limites de residência fiscal e importa viagens anteriores a partir de fotos - tudo no seu dispositivo.</p>
+                <p class="app-tagline">Contador de dias por país GPS conta os dias em todos os países, ajuda você a permanecer sob Schengen 90/180 e limites de residência fiscal e importa viagens anteriores a partir de fotos - tudo no seu dispositivo.</p>
                 <div class="app-badges">
-                    <a href="https://apps.apple.com/pt/app/id6782627594" target="_blank" rel="noopener noreferrer" class="btn btn-app-store" aria-label="Transferir na App Store">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 12px; vertical-align: middle;">
-                            <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"></path>
-                        </svg>
-                        <span>Transferir na App Store</span>
-                        <span class="btn-divider"></span>
-                        <span class="btn-free">Grátis</span>
+                    <a href="https://apps.apple.com/pt/app/id6782627594" target="_blank" rel="noopener noreferrer" class="store store-lg store-ios" aria-label="Transferir na App Store">
+                        <svg class="apple" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"></path></svg>
+                        <span class="store-label"><span class="store-soft">Descarregar na</span><span class="store-strong">App Store</span></span>
+                        <span class="free">Grátis</span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.ohmyapp.countrydays" target="_blank" rel="noopener noreferrer" class="store store-lg store-play store-android" aria-label="Descarregar na Google Play">
+                        <svg class="play-mark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M6.2 3.4c-.7.4-1.2 1.2-1.2 2.1v13c0 .9.5 1.7 1.2 2.1.7.4 1.6.4 2.3 0l11.2-6.5c.8-.4 1.3-1.2 1.3-2.1s-.5-1.7-1.3-2.1L8.5 3.4c-.7-.4-1.6-.4-2.3 0z"/></svg>
+                        <span class="store-label"><span class="store-soft">Descarregar na</span><span class="store-strong">Google Play</span></span>
+                        <span class="free">Grátis</span>
                     </a>
                 </div>
             </div>
@@ -1067,7 +1204,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">O que é um <span class="title-accent">contador de dias por país</span>?</h2>
-                <p class="section-subtitle about-copy">Um rastreador de dias no país conta quantos dias você passa em cada país para limites de visto, residência fiscal e registros de viagens.<a href="https://apps.apple.com/pt/app/id6782627594" class="app-store-link" target="_blank" rel="noopener noreferrer">Contador de dias por país GPS</a>é um contador diário para iPhone - Schengen 90/180, predefinições de residência fiscal, rastreamento automático por GPS, importação de fotos, calendário e widgets.</p>
+                <p class="section-subtitle about-copy">Um rastreador de dias no país conta quantos dias você passa em cada país para limites de visto, residência fiscal e registros de viagens.Contador de dias por país GPSé um contador diário para iPhone e Android - Schengen 90/180, predefinições de residência fiscal, rastreamento automático por GPS, importação de fotos, calendário e widgets.</p>
             </div>
         </div>
     </section>
@@ -1085,7 +1222,7 @@
                         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </summary>
                     <div class="faq-answer-wrap">
-                        <p class="faq-answer">Um rastreador de dias no país conta os dias gastos em cada país para fins de vistos e regras fiscais.<a href="https://apps.apple.com/pt/app/id6782627594" class="app-store-link" target="_blank" rel="noopener noreferrer">Contador de dias por país GPS</a>adiciona contadores Schengen 90/180, predefinições de residência fiscal, rastreamento GPS e importação de fotos no iPhone.</p>
+                        <p class="faq-answer">Um rastreador de dias no país conta os dias gastos em cada país para fins de vistos e regras fiscais.Contador de dias por país GPSadiciona contadores Schengen 90/180, predefinições de residência fiscal, rastreamento GPS e importação de fotos no iPhone e no Android.</p>
                     </div>
                 </details>
                 <details class="faq-item">
@@ -1130,7 +1267,7 @@
                         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </summary>
                     <div class="faq-answer-wrap">
-                        <p class="faq-answer">Sim - download gratuito na App Store. Os recursos premium são compras opcionais no aplicativo.</p>
+                        <p class="faq-answer">Sim - download gratuito na App Store e no Google Play. Os recursos premium são compras opcionais no aplicativo.</p>
                     </div>
                 </details>
             </div>
@@ -1140,15 +1277,17 @@
     <section class="cta-section">
         <div class="cta-card">
             <h2 class="cta-title">Baixe o rastreador de dias do país</h2>
-            <p class="cta-description">Pegar<a href="https://apps.apple.com/pt/app/id6782627594" class="app-store-link" target="_blank" rel="noopener noreferrer">Contador de dias por país GPS</a>no iPhone - rastreie limites de visto, dias de residência fiscal e histórico de viagens com GPS e importação de fotos.</p>
+            <p class="cta-description">PegarContador de dias por país GPSno iPhone e no Android - rastreie limites de visto, dias de residência fiscal e histórico de viagens com GPS e importação de fotos.</p>
             <div class="cta-buttons">
-                <a href="https://apps.apple.com/pt/app/id6782627594" target="_blank" rel="noopener noreferrer" class="btn btn-app-store" aria-label="Transferir na App Store">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 12px; vertical-align: middle;">
-                        <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"></path>
-                    </svg>
-                    <span>Transferir na App Store</span>
-                    <span class="btn-divider"></span>
-                    <span class="btn-free">Grátis</span>
+                <a href="https://apps.apple.com/pt/app/id6782627594" target="_blank" rel="noopener noreferrer" class="store store-lg store-ios" aria-label="Transferir na App Store">
+                    <svg class="apple" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"></path></svg>
+                    <span class="store-label"><span class="store-soft">Descarregar na</span><span class="store-strong">App Store</span></span>
+                    <span class="free">Grátis</span>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.ohmyapp.countrydays" target="_blank" rel="noopener noreferrer" class="store store-lg store-play store-android" aria-label="Descarregar na Google Play">
+                    <svg class="play-mark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M6.2 3.4c-.7.4-1.2 1.2-1.2 2.1v13c0 .9.5 1.7 1.2 2.1.7.4 1.6.4 2.3 0l11.2-6.5c.8-.4 1.3-1.2 1.3-2.1s-.5-1.7-1.3-2.1L8.5 3.4c-.7-.4-1.6-.4-2.3 0z"/></svg>
+                    <span class="store-label"><span class="store-soft">Descarregar na</span><span class="store-strong">Google Play</span></span>
+                    <span class="free">Grátis</span>
                 </a>
             </div>
         </div>
@@ -1161,7 +1300,7 @@
                     <div class="logo-circle">C</div>
                     <span class="logo-text">Contador de dias por país GPS</span>
                 </div>
-                                                                                                                                                                                <div class="footer-lang">
+                                                                                                                                                                                                                                                                <div class="footer-lang">
                     <label for="lang-select" class="footer-lang-label">Idioma</label>
                     <select id="lang-select" class="lang-select" aria-label="Idioma">
                         <option value="/">EN</option>

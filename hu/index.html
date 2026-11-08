@@ -3,14 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            var ua = navigator.userAgent || "";
+            var platform = navigator.platform || "";
+            var touch = navigator.maxTouchPoints || 0;
+            var coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+            var ipad = /iPad|iPhone|iPod/i.test(ua) || /iPad|iPhone|iPod/i.test(platform) || ((/Mac/i.test(platform) || /Macintosh/i.test(ua)) && (touch > 0 || coarse));
+            var os = /Android/i.test(ua) ? "android" : (ipad ? "ios" : "");
+            if (os) document.documentElement.classList.add("os-" + os);
+            if (os === "android") {
+                document.addEventListener("DOMContentLoaded", function () {
+                    var play = "https://play.google.com/store/apps/details?id=com.ohmyapp.countrydays";
+                    var links = document.querySelectorAll('a[href*="apps.apple.com"]');
+                    for (var i = 0; i < links.length; i++) {
+                        if (links[i].classList.contains("store-ios")) continue;
+                        links[i].href = play;
+                    }
+                });
+            }
+        })();
+    </script>
     
     <!-- Primary Meta Tags -->
-    <title>Country Days Tracker - Vízum- és adónapszámláló | iPhone</title>
-    <meta name="title" content="Country Days Tracker - Vízum- és adónapszámláló | iPhone">
-    <meta name="description" content="Országos napkövető iPhone-ra - számolja meg a napokat minden országban, kövesse a schengeni 90/180-as és az adóügyi tartózkodási szabályokat, automatikus">
-    <meta name="keywords" content="country, days, tracker, count, counter, visa, schengen, tax, residency, tartózkodás, utazás, külföld">
+    <title>Schengen- és adónapszámláló</title>
+    <meta name="title" content="Schengen- és adónapszámláló">
+    <meta name="description" content="Számolja a napokat minden országban iPhone-on vagy Androidon. Schengen 90/180 és adózási tartózkodás, GPS-szel és fotóimporttal. Ingyenes.">
+    <meta name="keywords" content="Schengen, adózási tartózkodás, napok országonként, vízum">
     <meta name="author" content="omoot apps">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <meta name="language" content="Hungarian">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,24 +42,60 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://countrydays.app/hu/">
-    <meta property="og:title" content="Country Days Tracker - Vízum- és adónapszámláló | iPhone">
-    <meta property="og:description" content="Országos napkövető iPhone-ra - számolja meg a napokat minden országban, kövesse a schengeni 90/180-as és az adóügyi tartózkodási szabályokat, automatikus">
-    <meta property="og:image" content="https://countrydays.app/assets/images/country-days/optimized/hero.png">
+    <meta property="og:title" content="Schengen- és adónapszámláló">
+    <meta property="og:description" content="Számolja a napokat minden országban iPhone-on vagy Androidon. Schengen 90/180 és adózási tartózkodás, GPS-szel és fotóimporttal. Ingyenes.">
+    <meta property="og:image" content="https://countrydays.app/assets/images/country-days/optimized/og.png">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Country Days Tracker & Counter iOS App">
-    <meta property="og:image:secure_url" content="https://countrydays.app/assets/images/country-days/optimized/hero.png">
+    <meta property="og:image:alt" content="Országonkénti napszámláló iPhone-ra és Androidra">
+    <meta property="og:image:secure_url" content="https://countrydays.app/assets/images/country-days/optimized/og.png">
     <meta property="og:site_name" content="Country Days Tracker & Counter">
     <meta property="og:locale" content="hu_HU">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="de_DE">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:locale:alternate" content="es_ES">
+    <meta property="og:locale:alternate" content="ru_RU">
+    <meta property="og:locale:alternate" content="pl_PL">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:locale:alternate" content="pt_BR">
+    <meta property="og:locale:alternate" content="zh_CN">
+    <meta property="og:locale:alternate" content="ko_KR">
+    <meta property="og:locale:alternate" content="it_IT">
+    <meta property="og:locale:alternate" content="nl_NL">
+    <meta property="og:locale:alternate" content="tr_TR">
+    <meta property="og:locale:alternate" content="uk_UA">
+    <meta property="og:locale:alternate" content="ar_SA">
+    <meta property="og:locale:alternate" content="sv_SE">
+    <meta property="og:locale:alternate" content="zh_TW">
+    <meta property="og:locale:alternate" content="pt_PT">
+    <meta property="og:locale:alternate" content="vi_VN">
+    <meta property="og:locale:alternate" content="id_ID">
+    <meta property="og:locale:alternate" content="th_TH">
+    <meta property="og:locale:alternate" content="cs_CZ">
+    <meta property="og:locale:alternate" content="da_DK">
+    <meta property="og:locale:alternate" content="nb_NO">
+    <meta property="og:locale:alternate" content="fi_FI">
+    <meta property="og:locale:alternate" content="he_IL">
+    <meta property="og:locale:alternate" content="ca_ES">
+    <meta property="og:locale:alternate" content="hr_HR">
+    <meta property="og:locale:alternate" content="el_GR">
+    <meta property="og:locale:alternate" content="hi_IN">
+    <meta property="og:locale:alternate" content="ms_MY">
+    <meta property="og:locale:alternate" content="es_MX">
+    <meta property="og:locale:alternate" content="ro_RO">
+    <meta property="og:locale:alternate" content="sk_SK">
+    <meta property="og:locale:alternate" content="fr_CA">
     <meta property="og:updated_time" content="2026-07-10T00:00:00+00:00">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://countrydays.app/hu/">
-    <meta name="twitter:title" content="Country Days Tracker - Vízum- és adónapszámláló | iPhone">
-    <meta name="twitter:description" content="Országos napkövető iPhone-ra - számolja meg a napokat minden országban, kövesse a schengeni 90/180-as és az adóügyi tartózkodási szabályokat, automatikus">
-    <meta name="twitter:image" content="https://countrydays.app/assets/images/country-days/optimized/hero.png">
-    <meta name="twitter:image:alt" content="Country Days Tracker & Counter iOS App">
+    <meta name="twitter:title" content="Schengen- és adónapszámláló">
+    <meta name="twitter:description" content="Számolja a napokat minden országban iPhone-on vagy Androidon. Schengen 90/180 és adózási tartózkodás, GPS-szel és fotóimporttal. Ingyenes.">
+    <meta name="twitter:image" content="https://countrydays.app/assets/images/country-days/optimized/og.png">
+    <meta name="twitter:image:alt" content="Országonkénti napszámláló iPhone-ra és Androidra">
     
     <!-- App Store -->
     <meta name="apple-itunes-app" content="app-id=6782627594">
@@ -52,11 +109,11 @@
     <link rel="preload" href="../assets/css/app-page.css" as="style">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/country-days/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/country-days/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/country-days/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/country-days/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="../assets/images/country-days/optimized/android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/country-days/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/country-days/favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/country-days/apple-touch-icon.png?v=2">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/country-days/android-chrome-192x192.png?v=2">
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/images/country-days/optimized/android-chrome-512x512.png?v=2">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -340,25 +397,21 @@
             background-clip: unset !important;
             filter: none !important;
             text-shadow: none !important;
-            font-size: 1.5rem !important;
+            font-size: 0.9375rem !important;
+            line-height: 1.25 !important;
+            margin-top: 18px !important;
             margin-bottom: 16px !important;
-            margin-top: 0 !important;
             font-weight: 700 !important;
-            letter-spacing: 0.02em !important;
+            letter-spacing: 0.04em !important;
             text-transform: uppercase;
         }
         
         @media (max-width: 768px) {
             .app-slogan {
-                font-size: 1.25rem !important;
-                margin-bottom: 30px !important;
-                margin-top: 0 !important;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .app-slogan {
-                font-size: 1.125rem !important;
+                font-size: 0.8125rem !important;
+                line-height: 1.2 !important;
+                margin-top: 16px !important;
+                margin-bottom: 14px !important;
             }
         }
         
@@ -689,6 +742,68 @@
         
         
         
+        html.os-ios .store-android,
+        html.os-android .store-ios { display: none !important; }
+        .app-badges,
+        .cta-buttons {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            align-items: center;
+            gap: 14px;
+        }
+        .app-badges .store,
+        .cta-buttons .store {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 14px;
+            width: auto !important;
+            flex: none;
+            align-self: center;
+            margin: 0;
+            padding: 16px 18px !important;
+            border: 0;
+            border-radius: 16px !important;
+            background: #1A8EFF;
+            color: #07111F !important;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: 0;
+            text-transform: none !important;
+            text-decoration: none;
+            white-space: nowrap;
+            box-shadow: none !important;
+        }
+        .store-play { background: #3ECF8E !important; color: #07111F !important; }
+        html.os-ios .store,
+        html.os-android .store-play { background: #1A8EFF !important; color: #07111F !important; }
+        .store:hover { filter: brightness(1.05); }
+        .store .apple,
+        .store .play-mark { width: 24px; height: 24px; flex: none; display: block; margin: 0 !important; }
+        .store-label { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; text-align: start; }
+        .store-soft { font-weight: 500; font-size: 0.72em; color: inherit !important; }
+        .store-strong { font-weight: 800; font-size: 1em; color: inherit !important; }
+        .store .free {
+            padding-left: 12px;
+            border-left: 1px solid rgba(7, 17, 31, 0.22);
+            font-weight: 700;
+            color: inherit !important;
+        }
+        [dir="rtl"] .store .free { padding-left: 0; padding-right: 12px; border-left: 0; border-right: 1px solid rgba(7, 17, 31, 0.22); }
+        @media (max-width: 1100px) {
+            .app-badges, .cta-buttons { flex-wrap: wrap !important; justify-content: center; }
+        }
+        @media (max-width: 768px) {
+            .app-badges, .cta-buttons { justify-content: center; }
+            .app-badges .store, .cta-buttons .store { align-self: center; }
+        }
+        
+        
+        
+        
+        
         .footer-lang {
             display: flex;
             align-items: center;
@@ -756,13 +871,13 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Országonkénti nap számláló GPS",
-        "alternateName": ["Country Days Tracker", "Visa Day Counter", "Schengen Calculator"],
+        "alternateName": ["Country Days Tracker"],
         "url": "https://countrydays.app/hu/",
+        "image": "https://countrydays.app/assets/images/country-days/optimized/logo.png",
         "applicationCategory": "TravelApplication",
-        "operatingSystem": "iOS",
+        "operatingSystem": "iOS, Android",
         "inLanguage": "hu",
-        "datePublished": "2024-01-01",
-        "dateModified": "2026-07-06",
+        "dateModified": "2026-11-08",
         "author": {
             "@type": "Organization",
             "name": "omoot apps",
@@ -773,8 +888,13 @@
             "price": "0",
             "priceCurrency": "USD"
         },
-        "description": "Országos napkövető iPhone-ra - számolja meg a napokat minden országban, kövesse a schengeni 90/180-as és az adóügyi tartózkodási szabályokat, automatikus",
-        "screenshot": "https://countrydays.app/assets/images/country-days/optimized/01-track-days.jpg",
+        "description": "Számolja a napokat minden országban iPhone-on vagy Androidon. Schengen 90/180 és adózási tartózkodás, GPS-szel és fotóimporttal. Ingyenes.",
+        "screenshot": [
+            "https://countrydays.app/assets/images/country-days/optimized/01-track-days.jpg",
+            "https://countrydays.app/assets/images/country-days/optimized/02-visas-taxes.jpg",
+            "https://countrydays.app/assets/images/country-days/optimized/03-calendar.jpg",
+            "https://countrydays.app/assets/images/country-days/optimized/04-day-counters.jpg"
+        ],
         "featureList": [
             "Napok száma országonként",
             "Vízum és adó pultok",
@@ -783,11 +903,11 @@
             "Fotó utazás import",
             "Kezdőképernyő widgetek"
         ],
-        "softwareVersion": "1.0",
-        "releaseNotes": "Initial release with all core features",
-        "downloadUrl": "https://apps.apple.com/hu/app/id6782627594",
-        "installUrl": "https://apps.apple.com/hu/app/id6782627594",
-        "softwareRequirements": "iOS 15.1 or later"
+        "downloadUrl": [
+            "https://apps.apple.com/hu/app/id6782627594",
+            "https://play.google.com/store/apps/details?id=com.ohmyapp.countrydays"
+        ],
+        "installUrl": "https://apps.apple.com/hu/app/id6782627594"
     }
     </script>
 
@@ -795,15 +915,32 @@
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Country Days Tracker & Counter",
-        "alternateName": "Country Days Tracker",
+        "name": "Országonkénti nap számláló GPS",
         "url": "https://countrydays.app/hu/",
-        "description": "Official landing page for Country Days Tracker & Counter, a country days tracker for iPhone.",
+        "inLanguage": "hu",
+        "description": "Számolja a napokat minden országban iPhone-on vagy Androidon. Schengen 90/180 és adózási tartózkodás, GPS-szel és fotóimporttal. Ingyenes.",
         "publisher": {
             "@type": "Organization",
             "name": "omoot apps",
             "url": "https://omoot.app/"
         }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "url": "https://countrydays.app/hu/",
+        "name": "Schengen- és adónapszámláló",
+        "inLanguage": "hu",
+        "description": "Számolja a napokat minden országban iPhone-on vagy Androidon. Schengen 90/180 és adózási tartózkodás, GPS-szel és fotóimporttal. Ingyenes.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Országonkénti nap számláló GPS",
+            "url": "https://countrydays.app/hu/"
+        },
+        "primaryImageOfPage": "https://countrydays.app/assets/images/country-days/optimized/og.png"
     }
     </script>
 
@@ -827,7 +964,7 @@
                             "name": "Mi az országonkénti napszámláló?",
                             "acceptedAnswer": {
                                       "@type": "Answer",
-                                      "text": "Egy országnapkövető számolja az egyes országokban eltöltött napokat a vízum- és adószabályok miatt.Országonkénti nap számláló GPShozzáadja a Schengen 90/180-as számlálókat, az adórezidens-előbeállításokat, a GPS-követést és a fényképek importálását az iPhone-on."
+                                      "text": "Egy országnapkövető számolja az egyes országokban eltöltött napokat a vízum- és adószabályok miatt.Országonkénti nap számláló GPShozzáadja a Schengen 90/180-as számlálókat, az adórezidens-előbeállításokat, a GPS-követést és a fényképek importálását iPhone-on és Androidon és Androidon."
                             }
                   },
                   {
@@ -867,7 +1004,7 @@
                             "name": "Ez az alkalmazás ingyenes?",
                             "acceptedAnswer": {
                                       "@type": "Answer",
-                                      "text": "Igen - ingyenes letöltés az App Store-ból. A prémium funkciók opcionális alkalmazáson belüli vásárlások."
+                                      "text": "Igen - ingyenes letöltés az App Store-ból és a Google Playről. A prémium funkciók opcionális alkalmazáson belüli vásárlások."
                             }
                   }
         ]
@@ -918,21 +1055,21 @@
         <div class="app-hero-container">
             <div class="app-hero-content">
                 <div class="app-icon-large">
-                    <a href="https://apps.apple.com/hu/app/id6782627594" target="_blank" rel="noopener noreferrer" aria-label="Letöltés az App Store-ból" style="display: block; text-decoration: none;">
-                        <img src="../assets/images/country-days/optimized/logo.png" alt="Country Days Tracker & Counter Logo" class="app-logo" width="120" height="120" loading="eager" decoding="async">
-                    </a>
+                    <img src="../assets/images/country-days/optimized/logo.png" alt="Country Days Tracker & Counter" class="app-logo" width="120" height="120" loading="eager" decoding="async">
                 </div>
-                <p class="app-slogan">Országonkénti napszámláló iPhone-ra</p>
+                <p class="app-slogan">Országonkénti napszámláló iPhone-ra és Androidra</p>
                 <h1 class="app-title">Számolja <span class="highlight-brand">a vízum- és adónapokat</span> automatikusan</h1>
-                <p class="app-tagline"><a href="https://apps.apple.com/hu/app/id6782627594" class="app-store-link" target="_blank" rel="noopener noreferrer">Országonkénti nap számláló GPS</a> minden országban számolja a napokat, segít a schengeni 90/180-as és az adóügyi tartózkodási korlátok betartásában, valamint a korábbi utazásokat importálja a fényképekből - mindezt az eszközön.</p>
+                <p class="app-tagline">Országonkénti nap számláló GPS minden országban számolja a napokat, segít a schengeni 90/180-as és az adóügyi tartózkodási korlátok betartásában, valamint a korábbi utazásokat importálja a fényképekből - mindezt az eszközön.</p>
                 <div class="app-badges">
-                    <a href="https://apps.apple.com/hu/app/id6782627594" target="_blank" rel="noopener noreferrer" class="btn btn-app-store" aria-label="Letöltés az App Store-ból">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 12px; vertical-align: middle;">
-                            <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"></path>
-                        </svg>
-                        <span>Letöltés az App Store-ból</span>
-                        <span class="btn-divider"></span>
-                        <span class="btn-free">Ingyenes</span>
+                    <a href="https://apps.apple.com/hu/app/id6782627594" target="_blank" rel="noopener noreferrer" class="store store-lg store-ios" aria-label="Letöltés az App Store-ból">
+                        <svg class="apple" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"></path></svg>
+                        <span class="store-label"><span class="store-soft">Letöltés</span><span class="store-strong">App Store</span></span>
+                        <span class="free">Ingyenes</span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.ohmyapp.countrydays" target="_blank" rel="noopener noreferrer" class="store store-lg store-play store-android" aria-label="Letöltés Google Play">
+                        <svg class="play-mark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M6.2 3.4c-.7.4-1.2 1.2-1.2 2.1v13c0 .9.5 1.7 1.2 2.1.7.4 1.6.4 2.3 0l11.2-6.5c.8-.4 1.3-1.2 1.3-2.1s-.5-1.7-1.3-2.1L8.5 3.4c-.7-.4-1.6-.4-2.3 0z"/></svg>
+                        <span class="store-label"><span class="store-soft">Letöltés</span><span class="store-strong">Google Play</span></span>
+                        <span class="free">Ingyenes</span>
                     </a>
                 </div>
             </div>
@@ -1067,7 +1204,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Mi az a <span class="title-accent">országonkénti napszámláló</span>?</h2>
-                <p class="section-subtitle about-copy">Az országnapok nyomkövetője megszámolja, hogy hány napot tölt az egyes országokban a vízumkorlátozás, az adózási tartózkodási hely és az utazási nyilvántartások miatt.<a href="https://apps.apple.com/hu/app/id6782627594" class="app-store-link" target="_blank" rel="noopener noreferrer">Országonkénti nap számláló GPS</a>egy napszámláló iPhone-hoz - Schengen 90/180, adózási tartózkodási előbeállítások, GPS automatikus követés, fotóimportálás, naptár és kütyü.</p>
+                <p class="section-subtitle about-copy">Az országnapok nyomkövetője megszámolja, hogy hány napot tölt az egyes országokban a vízumkorlátozás, az adózási tartózkodási hely és az utazási nyilvántartások miatt.Országonkénti nap számláló GPSegy napszámláló iPhone-ra és Androidra - Schengen 90/180, adózási tartózkodási előbeállítások, GPS automatikus követés, fotóimportálás, naptár és kütyü.</p>
             </div>
         </div>
     </section>
@@ -1085,7 +1222,7 @@
                         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </summary>
                     <div class="faq-answer-wrap">
-                        <p class="faq-answer">Egy országnapkövető számolja az egyes országokban eltöltött napokat a vízum- és adószabályok miatt.<a href="https://apps.apple.com/hu/app/id6782627594" class="app-store-link" target="_blank" rel="noopener noreferrer">Országonkénti nap számláló GPS</a>hozzáadja a Schengen 90/180-as számlálókat, az adórezidens-előbeállításokat, a GPS-követést és a fényképek importálását az iPhone-on.</p>
+                        <p class="faq-answer">Egy országnapkövető számolja az egyes országokban eltöltött napokat a vízum- és adószabályok miatt.Országonkénti nap számláló GPShozzáadja a Schengen 90/180-as számlálókat, az adórezidens-előbeállításokat, a GPS-követést és a fényképek importálását iPhone-on és Androidon és Androidon.</p>
                     </div>
                 </details>
                 <details class="faq-item">
@@ -1130,7 +1267,7 @@
                         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </summary>
                     <div class="faq-answer-wrap">
-                        <p class="faq-answer">Igen - ingyenes letöltés az App Store-ból. A prémium funkciók opcionális alkalmazáson belüli vásárlások.</p>
+                        <p class="faq-answer">Igen - ingyenes letöltés az App Store-ból és a Google Playről. A prémium funkciók opcionális alkalmazáson belüli vásárlások.</p>
                     </div>
                 </details>
             </div>
@@ -1140,15 +1277,17 @@
     <section class="cta-section">
         <div class="cta-card">
             <h2 class="cta-title">Töltse le az országnapok nyomkövetőjét</h2>
-            <p class="cta-description">Kap<a href="https://apps.apple.com/hu/app/id6782627594" class="app-store-link" target="_blank" rel="noopener noreferrer">Országonkénti nap számláló GPS</a>iPhone-on - nyomon követheti a vízumkorlátokat, az adózási tartózkodási napokat és az utazási előzményeket GPS-szel és fotóimportálással.</p>
+            <p class="cta-description">KapOrszágonkénti nap számláló GPSiPhone-on és Androidon - nyomon követheti a vízumkorlátokat, az adózási tartózkodási napokat és az utazási előzményeket GPS-szel és fotóimportálással.</p>
             <div class="cta-buttons">
-                <a href="https://apps.apple.com/hu/app/id6782627594" target="_blank" rel="noopener noreferrer" class="btn btn-app-store" aria-label="Letöltés az App Store-ból">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 12px; vertical-align: middle;">
-                        <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"></path>
-                    </svg>
-                    <span>Letöltés az App Store-ból</span>
-                    <span class="btn-divider"></span>
-                    <span class="btn-free">Ingyenes</span>
+                <a href="https://apps.apple.com/hu/app/id6782627594" target="_blank" rel="noopener noreferrer" class="store store-lg store-ios" aria-label="Letöltés az App Store-ból">
+                    <svg class="apple" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"></path></svg>
+                    <span class="store-label"><span class="store-soft">Letöltés</span><span class="store-strong">App Store</span></span>
+                    <span class="free">Ingyenes</span>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.ohmyapp.countrydays" target="_blank" rel="noopener noreferrer" class="store store-lg store-play store-android" aria-label="Letöltés Google Play">
+                    <svg class="play-mark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M6.2 3.4c-.7.4-1.2 1.2-1.2 2.1v13c0 .9.5 1.7 1.2 2.1.7.4 1.6.4 2.3 0l11.2-6.5c.8-.4 1.3-1.2 1.3-2.1s-.5-1.7-1.3-2.1L8.5 3.4c-.7-.4-1.6-.4-2.3 0z"/></svg>
+                    <span class="store-label"><span class="store-soft">Letöltés</span><span class="store-strong">Google Play</span></span>
+                    <span class="free">Ingyenes</span>
                 </a>
             </div>
         </div>
@@ -1161,7 +1300,7 @@
                     <div class="logo-circle">C</div>
                     <span class="logo-text">Országonkénti nap számláló GPS</span>
                 </div>
-                                                                                                                                                                                <div class="footer-lang">
+                                                                                                                                                                                                                                                                <div class="footer-lang">
                     <label for="lang-select" class="footer-lang-label">Nyelv</label>
                     <select id="lang-select" class="lang-select" aria-label="Nyelv">
                         <option value="/">EN</option>

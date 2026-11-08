@@ -103,8 +103,8 @@ function normalizeDashes(str) {
   return str.replace(/[—–]/g, '-');
 }
 
-function appLink(storeUrl, appName) {
-  return `<a href="${storeUrl}" class="app-store-link" target="_blank" rel="noopener noreferrer">${appName}</a>`;
+function appLink(_storeUrl, appName) {
+  return appName;
 }
 
 // Concatenates before/link/after text directly (no automatic spacing).
@@ -122,6 +122,23 @@ function linkedText(before, appName, after, storeUrl) {
 function taglineText(code, appName, tagline, storeUrl) {
   const link = appLink(storeUrl, appName);
   return NO_SPACE_LOCALES.has(code) ? `${link}${tagline}` : `${link} ${tagline}`;
+}
+
+function ogLocaleFor(code) {
+  return code === 'en' ? 'en_US' : phrases[code].ogLocale;
+}
+
+function applyOgLocales(html, code) {
+  const current = ogLocaleFor(code);
+  const alts = ALL_LOCALES
+    .filter((locale) => locale.code !== code)
+    .map((locale) => `    <meta property="og:locale:alternate" content="${ogLocaleFor(locale.code)}">`)
+    .join('\n');
+  html = html.replace(/\n\s*<meta property="og:locale:alternate" content="[^"]*">/g, '');
+  return html.replace(
+    /<meta property="og:locale" content="[^"]*">/,
+    `<meta property="og:locale" content="${current}">\n${alts}`,
+  );
 }
 
 function hreflangBlock() {
@@ -150,6 +167,8 @@ function localeRedirectScript() {
   const routesJson = JSON.stringify(Object.fromEntries(routeEntries));
   return `    <script>
         (function () {
+            var ua = navigator.userAgent || "";
+            if (/bot|crawl|spider|slurp|preview|facebookexternalhit|embedly|pinterest|whatsapp|telegram/i.test(ua)) return;
             var routes = ${routesJson};
             var path = window.location.pathname;
             if (path !== '/' && path !== '/index.html') return;
@@ -324,7 +343,7 @@ function buildLocalePage(code) {
   );
   html = html.replace(
     /<meta name="keywords" content="[^"]*">/,
-    `<meta name="keywords" content="${keywords}">`,
+    `<meta name="keywords" content="${o.metaKeywords || keywords}">`,
   );
   html = html.replace(
     /<meta name="language" content="[^"]*">/,
@@ -346,9 +365,14 @@ function buildLocalePage(code) {
     /<meta name="twitter:title" content="[^"]*">/,
     `<meta name="twitter:title" content="${o.metaTitle}">`,
   );
+  html = applyOgLocales(html, code);
   html = html.replace(
-    /<meta property="og:locale" content="[^"]*">/,
-    `<meta property="og:locale" content="${o.ogLocale}">`,
+    /<meta property="og:image:alt" content="[^"]*">/,
+    `<meta property="og:image:alt" content="${o.ogImageAlt || o.heroSlogan}">`,
+  );
+  html = html.replace(
+    /<meta name="twitter:image:alt" content="[^"]*">/,
+    `<meta name="twitter:image:alt" content="${o.ogImageAlt || o.heroSlogan}">`,
   );
   html = html.replace(
     /https:\/\/countrydays\.app\/assets\//g,
@@ -365,17 +389,21 @@ function buildLocalePage(code) {
     html = html.replace(/<link rel="alternate" hreflang="[^"]*" href="[^"]*">\n?/g, '');
     html = html.replace('</head>', `${hreflangBlock()}\n</head>`);
   }
-  html = html.replace(/\s*<script>\s*\(function \(\) \{\s*var (supported|routes)[\s\S]*?<\/script>\s*/g, '\n');
+  html = html.replace(/\s*<script>\s*\(function \(\) \{(?:(?!<\/script>)[\s\S])*?var routes = [\s\S]*?<\/script>\s*/g, '\n');
 
-  html = html.replace(/"inLanguage": "en-US"/, `"inLanguage": "${o.htmlLang}"`);
+  html = html.replace(/"inLanguage": "[^"]*"/g, `"inLanguage": "${LOCALE_CONFIG[code].hreflang}"`);
   html = html.replace(/"url": "https:\/\/countrydays\.app\/"/g, `"url": "${pageUrl}"`);
   html = html.replace(
-    /"name": "Country Days Tracker & Counter"/,
-    `"name": "${escapeJson(appName)}"`,
+    /"name": "Country Days Tracker & Counter",/g,
+    `"name": "${escapeJson(appName)}",`,
   );
   html = html.replace(
-    /"description": "Country days tracker for iPhone - count days in every country, follow Schengen 90\/180 and tax residency rules, with GPS auto-tracking, photo import, and on-device privacy\."/,
-    `"description": "${escapeJson(o.metaDescription)}"`,
+    /"name": "Schengen and Tax Day Counter \| Country Days"/,
+    `"name": "${escapeJson(o.metaTitle)}"`,
+  );
+  html = html.replaceAll(
+    'Count days in every country on iPhone or Android. Track Schengen 90/180 and tax residency, with GPS and photo import. Free on the App Store and Google Play.',
+    escapeJson(o.metaDescription),
   );
 
   const featureListJson = features.map((f) => `"${escapeJson(f.title)}"`).join(',\n            ');
@@ -439,7 +467,7 @@ function buildLocalePage(code) {
     `<h2 class="section-title">${o.faqTitle}${titleSep(code, o.faqTitle, o.faqTitleAccent)}<span class="title-accent">${o.faqTitleAccent}</span></h2>`,
   );
   html = html.replace(
-    /<p class="section-subtitle">Common questions about our country days tracker for iPhone<\/p>/,
+    /<p class="section-subtitle">Common questions about the country days tracker for iPhone and Android<\/p>/,
     `<p class="section-subtitle">${o.faqSubtitle}</p>`,
   );
 
@@ -472,9 +500,10 @@ function buildLocalePage(code) {
     `<p class="cta-description">${linkedText(o.ctaDescription, appName, o.ctaDescriptionAfter, storeUrl)}</p>`,
   );
 
-  html = html.replace(/<span>Download on the App Store<\/span>/g, `<span>${o.downloadAppStore}</span>`);
-  html = html.replace(/<span class="btn-free">Free<\/span>/g, `<span class="btn-free">${o.free}</span>`);
+  html = html.replace(/<span class="store-soft">Download on the<\/span>/g, `<span class="store-soft">${o.storeSoft || 'Download on the'}</span>`);
+  html = html.replace(/<span class="free">Free<\/span>/g, `<span class="free">${o.free}</span>`);
   html = html.replace(/aria-label="Download on the App Store"/g, `aria-label="${o.downloadAppStore}"`);
+  html = html.replace(/aria-label="Download on Google Play"/g, `aria-label="${o.storeSoft || o.downloadAppStore} Google Play"`);
   html = html.replace(/aria-label="Download Country Days Tracker & Counter on the App Store"/g, `aria-label="${o.downloadAppStore}"`);
   html = html.replace(/<span class="logo-text">Country Days Tracker & Counter<\/span>/, `<span class="logo-text">${appName}</span>`);
   html = html.replace(/>Privacy<\/a>/, `>${o.privacy}</a>`);
@@ -497,7 +526,7 @@ function buildLocalePage(code) {
 function updateEnglishIndex() {
   let html = fs.readFileSync(TEMPLATE_PATH, 'utf8');
   html = html.replace(/<link rel="alternate" hreflang="[^"]*" href="[^"]*">\n?/g, '');
-  html = html.replace(/\s*<script>\s*\(function \(\) \{\s*var (supported|routes)[\s\S]*?<\/script>\s*/g, '\n');
+  html = html.replace(/\s*<script>\s*\(function \(\) \{(?:(?!<\/script>)[\s\S])*?var routes = [\s\S]*?<\/script>\s*/g, '\n');
   html = html.replace('</head>', `${hreflangBlock()}\n${localeRedirectScript()}\n</head>`);
   html = html.replace(/<div class="footer-lang"[^>]*>[\s\S]*?<\/div>\s*/g, '');
   html = html.replace(
@@ -513,6 +542,7 @@ function updateEnglishIndex() {
   html = html.replace('</style>', `${FOOTER_LANG_CSS}    </style>`);
   html = html.replace(/\s*<script>\s*\(function \(\) \{\s*var select = document\.getElementById\('lang-select'\)[\s\S]*?<\/script>\s*/g, '\n');
   html = html.replace('</body>', `${langSwitcherScript()}\n</body>`);
+  html = applyOgLocales(html, 'en');
   fs.writeFileSync(TEMPLATE_PATH, normalizeDashes(html));
 }
 
