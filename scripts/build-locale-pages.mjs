@@ -113,7 +113,11 @@ function appLink(_storeUrl, appName) {
 // baked into the translated `before`/`after` strings in landing-phrases.json,
 // so this stays a straight string join rather than guessing with regexes.
 function linkedText(before, appName, after, storeUrl) {
-  return `${before || ''}${appLink(storeUrl, appName)}${after || ''}`;
+  const head = before || '';
+  const tail = after || '';
+  const gapBefore = head && !/\s$/.test(head) && /[.!?。！？]$/.test(head) ? ' ' : '';
+  const gapAfter = tail && !/^[\s.,;:!?—–-]/.test(tail) ? ' ' : '';
+  return `${head}${gapBefore}${appLink(storeUrl, appName)}${gapAfter}${tail}`;
 }
 
 // The hero tagline always starts with the app name link followed by the
@@ -121,7 +125,9 @@ function linkedText(before, appName, after, storeUrl) {
 // attach the following particle directly to the link with no space.
 function taglineText(code, appName, tagline, storeUrl) {
   const link = appLink(storeUrl, appName);
-  return NO_SPACE_LOCALES.has(code) ? `${link}${tagline}` : `${link} ${tagline}`;
+  const latinCjk = /[A-Za-z0-9]$/.test(link) && /^[^\sA-Za-z0-9]/.test(tagline || '');
+  if (NO_SPACE_LOCALES.has(code) && !latinCjk) return `${link}${tagline}`;
+  return `${link} ${tagline}`;
 }
 
 function ogLocaleFor(code) {
@@ -151,36 +157,12 @@ function hreflangBlock() {
 }
 
 function localeRedirectScript() {
-  const routeEntries = ALL_LOCALES.filter(({ path: p }) => p !== '/').flatMap(({ path: p }) => {
-    const dir = p.replace(/\//g, '');
-    const entries = [[dir, p]];
-    if (dir === 'pt') entries.push(['pt-br', p]);
-    if (dir === 'zh') entries.push(['zh-cn', p], ['zh-hans', p]);
-    if (dir === 'zh-tw') entries.push(['zh-hant', p], ['zh-hk', p], ['zh-tw', p]);
-    if (dir === 'pt-pt') entries.push(['pt-pt', p]);
-    if (dir === 'uk') entries.push(['ua', p]);
-    if (dir === 'nb') entries.push(['no', p], ['nn', p]);
-    if (dir === 'es-mx') entries.push(['es-mx', p]);
-    if (dir === 'fr-ca') entries.push(['fr-ca', p]);
-    return entries;
-  });
-  const routesJson = JSON.stringify(Object.fromEntries(routeEntries));
   return `    <script>
         (function () {
-            var ua = navigator.userAgent || "";
-            if (/bot|crawl|spider|slurp|preview|facebookexternalhit|embedly|pinterest|whatsapp|telegram/i.test(ua)) return;
-            var routes = ${routesJson};
             var path = window.location.pathname;
-            if (path !== '/' && path !== '/index.html') return;
-
-            var langs = navigator.languages || [navigator.language || 'en'];
-            var primary = (langs[0] || 'en').toLowerCase();
-            if (primary === 'en' || primary.indexOf('en-') === 0) return;
-
-            var tag = primary;
-            var base = primary.split('-')[0];
-            if (routes[tag]) { window.location.replace(routes[tag]); return; }
-            if (routes[base]) { window.location.replace(routes[base]); return; }
+            if (!/\\/index\\.html$/.test(path)) return;
+            var next = path.replace(/index\\.html$/, '');
+            window.location.replace(next + window.location.search + window.location.hash);
         })();
     </script>`;
 }
@@ -527,6 +509,7 @@ function updateEnglishIndex() {
   let html = fs.readFileSync(TEMPLATE_PATH, 'utf8');
   html = html.replace(/<link rel="alternate" hreflang="[^"]*" href="[^"]*">\n?/g, '');
   html = html.replace(/\s*<script>\s*\(function \(\) \{(?:(?!<\/script>)[\s\S])*?var routes = [\s\S]*?<\/script>\s*/g, '\n');
+  html = html.replace(/\s*<script>\s*\(function \(\) \{\s*var path = window\.location\.pathname;[\s\S]*?<\/script>\s*/g, '\n');
   html = html.replace('</head>', `${hreflangBlock()}\n${localeRedirectScript()}\n</head>`);
   html = html.replace(/<div class="footer-lang"[^>]*>[\s\S]*?<\/div>\s*/g, '');
   html = html.replace(
